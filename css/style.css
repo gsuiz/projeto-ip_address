@@ -1,0 +1,247 @@
+:root{
+    --fontMain: rubik, sans-serif;
+    --verydarkgray: hsl(0, 0%, 17%);
+    --darkgray:hsl(0, 0%, 59%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    outline: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+main{
+    width: 100vw;
+}
+
+.top{
+    width: 100vw;
+    height: 170px;
+    background: url(../images/pattern-bg-desktop.png) no-repeat;
+    background-size: cover;
+    font-family: var(--fontMain);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.top p{
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.top__input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input__text{
+    width: 370px;
+    height: 35px;
+    max-width: 70%;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    padding-left: 15px;
+    font-family: var(--fontMain);
+    color: var(--verydarkgray);
+}
+
+.input__submit{
+    background: black;
+    width: 40px;
+    height: 35px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.input__submit img{
+    width: 8px;
+}
+
+.top__information{
+    width: 75%;
+    background-color: white;
+    color: black;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 15px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    padding: 2% 4%;
+    position: absolute;
+    top:100px;
+    z-index: 1;
+}
+
+.information__item .information__type{
+    color: var(--darkgray);
+    font-size: 12px;
+}
+
+.information__item{
+    width: 25%;
+    height: 110px;
+    padding-left: 2%;
+}
+
+.information__item:nth-of-type(1),
+.information__item:nth-of-type(2),
+.information__item:nth-of-type(3){
+    border-right: 1px solid var(--darkgray);
+}
+
+.top__information .information__content{
+    color: black;
+    line-height: 26px;
+    margin-bottom: 8px;
+}
+
+#map{
+    height: 85vh;
+    z-index: 0;
+}
+
+.arrow-bottom,
+.arrow-top{
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    display: none;
+}
+
+a[href="#tp"]{
+    color: white;
+    text-align: center;
+}
+
+.arrow-top{
+    align-items: center;
+    justify-content: center;
+    right: 30px;
+}
+ 
+.map__circle{
+    width: 56px;
+    height: 56px;
+    margin: 25vh auto;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side,#2f2f31 94%,#0000) top/9px 9px no-repeat,conic-gradient(#0000 30%,#202020);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+    animation: turn 1s infinite linear;
+}
+
+@keyframes turn {
+    0%{
+        transform: rotate(-360deg);
+    }
+}
+
+@media screen and (max-width:1250px){   
+    .top__information{
+        width: 85%;
+        padding: 2% 1%;
+    }
+    .information__item{
+        width: 28%;
+        padding-left: 1%;
+    }
+    .information__item:nth-of-type(1),
+    .information__item:nth-of-type(4){
+        width: 22%;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .top{
+        padding: 25px 0;
+    }
+    .top__information{
+        margin-top: 40px;
+        padding: 2% 0;
+        width: 100vw;
+        border-radius: 0;
+        text-align: center;
+    }
+    #map{
+        margin-top: 50px;
+        flex-grow: 1;
+        max-height: 81vh;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .top__information .information__content{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:780px){
+    .top{
+        padding: 30px 0;
+        height: 385px;
+        background-image: url(../images/pattern-bg-mobile.png);
+    }
+    .top p{
+        font-size: 27px;
+    }
+    .input__text{
+        height: 40px;
+    }
+    .input__submit{
+        height: 40px;
+    }
+    .top__information{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        border-radius: 20px;
+        margin-top:40px ;
+        padding: 5% 0;
+        gap: 15px;
+    }
+    .top__information .information__item{
+        width: 70%;
+        height: auto;
+        border: none;
+    }
+    .information__content{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .arrow-top{
+        display: flex;
+            bottom: -9em;
+    }
+    #map{
+        margin-top: 0;
+        min-height: 80vh;
+    }
+}
+@media screen and (max-width:375px){
+    .top__information .information__item{
+        width: 80%;
+    }
+    .information__item .information__content{
+        font-size: 19px;
+    }
+    .arrow-top{
+        bottom: -11em;
+    }
+}
